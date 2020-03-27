@@ -38,7 +38,7 @@ const Login = ({ navigation }) => {
     } else if (!validateEmail(email)) {
       setMessage("Only valid email addresses are accepted");
     } else if (password.length <= 10) {
-      setMessage("Password should have 10 or more characters");
+      setMessage("Password should have more than 10 characters");
     } else if (!validatePassword(password)) {
       setMessage("Password should include numbers");
     } else {

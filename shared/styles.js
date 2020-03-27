@@ -6,7 +6,7 @@ export const colors = {
   tertiary: "#057afd",
   alternative: "#666",
   fb: "#39559f",
-  disabled: 'rgba(5, 122, 253, 0.5)'
+  disabled: "rgba(5, 122, 253, 0.5)"
 };
 
 export const basic = StyleSheet.create({
@@ -16,9 +16,9 @@ export const basic = StyleSheet.create({
     backgroundColor: colors.primary
   },
   image: {
-      width: '100%',
-      height: '60%',
-      resizeMode: 'cover'
+    width: "100%",
+    height: "60%",
+    resizeMode: "cover"
   }
 });
 
@@ -30,7 +30,8 @@ export const form = StyleSheet.create({
   },
   heading: {
     fontSize: 32,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    paddingTop: 0
   },
   label: {
     color: colors.secondary
@@ -65,7 +66,7 @@ export const form = StyleSheet.create({
     padding: 15
   },
   disabled: {
-      backgroundColor: colors.disabled
+    backgroundColor: colors.disabled
   },
   buttonText: {
     textAlign: "center",
@@ -105,8 +106,8 @@ export const form = StyleSheet.create({
     backgroundColor: colors.fb
   },
   message: {
-      textAlign: 'center',
-      fontSize: 13,
-      color: 'tomato'
+    textAlign: "center",
+    fontSize: 13,
+    color: "tomato"
   }
 });

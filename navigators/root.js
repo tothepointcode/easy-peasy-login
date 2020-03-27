@@ -22,12 +22,20 @@ const Root = () => {
           headerTitle: "THE COMPANY",
           headerStyle: {
             backgroundColor: colors.primary,
+            shadowColor: "transparent",
+            shadowRadius: 0,
+            borderBottomWidth: 0,
+            elevation: 0,
+            shadowOffset: {
+                height: 0,
+            },
+            
           },
           headerTintColor: colors.secondary,
           headerTitleStyle: {
               letterSpacing: 1,
               padding: 15,
-              fontSize: 15
+              fontSize: 15,
           }
         }}
       >

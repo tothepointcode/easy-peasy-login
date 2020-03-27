@@ -18,7 +18,7 @@ import { basic, form, colors } from "../shared/styles";
 
 const Signup = ({ navigation }) => {
   const [email, setEmail] = useState("");
-  const [telephone, setTelephone] = useState("");
+  const [phone, setPhone] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
@@ -31,16 +31,19 @@ const Signup = ({ navigation }) => {
   };
 
   const validatePassword = password => {
-      let re = /[0-9]+/
-      return re.test(password);
-  }
+    let re = /[0-9]+/;
+    return re.test(password);
+  };
+
+  const validatePhone = phone => {
+    let re = /^(233|0)[\d]{9}$/;
+    return re.test(phone);
+  };
 
   const handleSubmit = () => {
-    console.log(validatePassword(password));
-
     if (
       email === "" ||
-      telephone === "" ||
+      phone === "" ||
       username === "" ||
       rePassword === "" ||
       password === ""
@@ -48,16 +51,18 @@ const Signup = ({ navigation }) => {
       setMessage("Fill in all fields");
     } else if (!validateEmail(email)) {
       setMessage("Only valid email addresses are accepted");
+    } else if (!validatePhone(phone)) {
+      setMessage("Invalid phone number");
     } else if (password.length <= 10) {
-      setMessage("Password should have 10 or more characters");
+      setMessage("Password should have more than 10 characters");
     } else if (!validatePassword(password)) {
-        setMessage("Password should include numbers");
+      setMessage("Password should include numbers");
     } else if (password !== rePassword) {
       setMessage("Passwords donot match!");
     } else {
       setMessage("");
       setPassword("");
-      setTelephone("");
+      setPhone("");
       setUsername("");
       setEmail("");
       setRePassword("");
@@ -100,12 +105,12 @@ const Signup = ({ navigation }) => {
           </View>
 
           <View style={form.field}>
-            <Text style={form.label}>Telephone</Text>
+            <Text style={form.label}>Phone Number</Text>
             <TextInput
-              onChangeText={value => setTelephone(value)}
-              name="telephone"
+              onChangeText={value => setPhone(value)}
+              name="phone"
               style={form.input}
-              value={telephone}
+              value={phone}
               autoCapitalize="none"
               maxLength={12}
               keyboardType="number-pad"
